@@ -1,0 +1,40 @@
+﻿.back {
+    width: 70px;
+    border: 0;
+    background-color: white;
+z-index: 1;
+}
+
+.imgback {
+    width: 50px;
+    text-align: center;
+    filter: drop-shadow(0 4px 6px rgb(27, 56, 28) ) grayscale(50%);
+    transition: all 0.5s;
+}
+
+    .imgback:hover {
+        width: 53px;
+        text-align: center;
+        filter: drop-shadow(0 8px 12px rgb(27, 56, 28));
+    }
+
+/*Centrar Alta Usuario*/
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}

@@ -1,0 +1,47 @@
+﻿.back {
+    width: 70px;
+    border: 0;
+    background-color: white;
+    
+}
+
+.imgback {
+    width: 50px;
+    text-align: center;
+    filter: drop-shadow(0 4px 6px rgb(27, 56, 28) ) grayscale(50%);
+    transition: all 0.5s;
+}
+
+    .imgback:hover {
+        width: 53px;
+        text-align: center;
+        filter: drop-shadow(0 8px 12px rgb(27, 56, 28));
+    }
+
+
+/*Boton modificar y eliminar*/
+.btnEdit_Delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 4px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+    .btnEdit_Delete:hover {
+        transform: scale(1.1);
+    }
+
+    .btnEdit_Delete img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+    }

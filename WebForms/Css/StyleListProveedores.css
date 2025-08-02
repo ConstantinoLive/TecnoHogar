@@ -1,0 +1,19 @@
+﻿.back {
+    width: 70px;
+    border: 0;
+    background-color: white;
+z-index: 1;
+}
+
+.imgback {
+    width: 50px;
+    text-align: center;
+    filter: drop-shadow(0 4px 6px rgb(27, 56, 28) ) grayscale(50%);
+    transition: all 0.5s;
+}
+
+    .imgback:hover {
+        width: 53px;
+        text-align: center;
+        filter: drop-shadow(0 8px 12px rgb(27, 56, 28));
+    }

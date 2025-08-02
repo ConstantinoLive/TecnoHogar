@@ -1,0 +1,98 @@
+﻿/*Boton salir*/
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    --clr-font-main: hsla(0 0% 20% / 100);
+    --btn-bg-1: rgb(255, 97, 100);
+    --btn-bg-2: rgb(255, 31, 31);
+    --btn-bg-color: hsla(360 100% 100% / 1);
+    --radii: 0.5em;
+    cursor: pointer;
+    margin-right: 40px;
+    padding: 0.9em 1.4em;
+    min-width: 120px;
+    min-height: 44px;
+    font-size: var(--size, 1rem);
+    font-weight: 500;
+    transition: 0.8s;
+    background-size: 280% auto;
+    background-image: linear-gradient( 325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90% );
+    border: none;
+    border-radius: var(--radii);
+    color: var(--btn-bg-color);
+    box-shadow: 0px 0px 20px rgba(255, 71, 132, 0.5), 0px 5px 5px -1px rgba(233, 58, 140, 0.25), inset 4px 4px 8px rgba(255, 175, 223, 0.5), inset -4px -4px 8px rgba(216, 19, 154, 0.35);
+}
+
+    .btn-logout:hover {
+        background-position: right top;
+    }
+
+    .btn-logout:is(:focus, :focus-visible, :active) {
+        outline: none;
+        box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
+    }
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-logout {
+        transition: linear;
+    }
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: white !important;
+    background-color: gray !important;
+    border:none;
+
+}
+
+
+
+.icon-wrapper {
+    width: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav li {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 15px;
+}
+
+.tituloPrincipal {
+    color: #dfdfdf;
+    font-size: 35px;
+    display: inline-block;
+    text-align:start;
+  
+}
+
+/**/
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
