@@ -50,7 +50,14 @@ namespace WebForms.Utils
             });
         }
 
-       
+        public static bool ValidarComision(string comision)
+        {
+            
+            string patron = @"^(\d{1,2}(\.\d{1,2})?%|0(\.\d{1,2})?)$";
+            return Regex.IsMatch(comision, patron);
+        }
+
+
     }
 
 }

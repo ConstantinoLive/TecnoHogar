@@ -319,11 +319,11 @@ namespace WebForms
                     return false;
                 }
                 // Stock actual
-                if (!int.TryParse(stockActual, out int stockValor) || stockValor < stockMin)
+               /* if (!int.TryParse(stockActual, out int stockValor) || stockValor < stockMin)
                 {
                     lblMensaje.Text = "El stock actual debe ser un número mayor o igual que el stock mínimo.";
                     return false;
-                }
+                }*/
 
                 /* Valida Marca */
                 if (ddlMarca.SelectedIndex == 0)

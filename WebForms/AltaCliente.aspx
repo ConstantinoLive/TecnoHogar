@@ -28,7 +28,7 @@
                                 Style="color: red; font-size: 17px; font-weight: 500; margin-top: 10px; display: inline-block;" />
                         </div>
                     </div>
-
+                
                     <div style="margin-bottom: 20px;">
                         <asp:Label ID="lblNombre" runat="server" Text="Nombre/Razón Social" Style="display: block; margin-bottom: 5px; color: #7f8c8d; font-size: 14px; font-weight: 500;"></asp:Label>
                         <asp:TextBox ID="txtNombre" runat="server" AutoPostBack="true" OnTextChanged="txtNombre_TextChanged" CssClass="form-control" Width="100%"

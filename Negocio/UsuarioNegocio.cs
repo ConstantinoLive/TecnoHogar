@@ -30,6 +30,7 @@ namespace Negocio
                     usuario.Apellido = datos.Lector["Apellido"].ToString();
                     usuario.Email = datos.Lector["Email"].ToString();
                     usuario.FechaAlta = (DateTime)datos.Lector["FechaAlta"];
+                    usuario.PorcentajeComision = (decimal)datos.Lector["PorcentajeComision"];
                     //usuario.TipoUsuario = (bool)datos.Lector["Admin"] ? TipoUsuario.Administrador : TipoUsuario.Vendedor;
                     usuario.Admin = (bool)datos.Lector["Admin"];
                     return true;
@@ -74,6 +75,7 @@ namespace Negocio
                     usuario.FechaAlta = (DateTime)datos.Lector["FechaAlta"];
                     usuario.Admin = (bool)datos.Lector["Admin"];
                     usuario.Activo = (bool)datos.Lector["Activo"];
+                    usuario.PorcentajeComision = (decimal)datos.Lector["PorcentajeComision"];
 
                     listaUsuarios.Add(usuario);
                 }
@@ -118,6 +120,7 @@ namespace Negocio
                     usuario.FechaAlta = (DateTime)datos.Lector["FechaAlta"];
                     usuario.Admin = (bool)datos.Lector["Admin"];
                     usuario.Activo = (bool)datos.Lector["Activo"];
+                    usuario.PorcentajeComision = (decimal)datos.Lector["PorcentajeComision"];
 
                     listaUsuarios.Add(usuario);
                 }
@@ -150,6 +153,7 @@ namespace Negocio
                 datos.setearParametro("@Contraseña", nuevo.Contrasena);
                 datos.setearParametro("@FechaAlta", nuevo.FechaAlta);
                 datos.setearParametro("@Admin", nuevo.Admin);
+                datos.setearParametro("@PorcentajeComision", nuevo.PorcentajeComision);
 
                 datos.ejecutarAccion();
             }
@@ -180,6 +184,7 @@ namespace Negocio
                 datos.setearParametro("@Contraseña", usuario.Contrasena);
                 datos.setearParametro("@FechaAlta", usuario.FechaAlta);
                 datos.setearParametro("@Admin", usuario.Admin);
+                datos.setearParametro("@PorcentajeComision", usuario.PorcentajeComision);
 
                 datos.ejecutarAccion();
             }

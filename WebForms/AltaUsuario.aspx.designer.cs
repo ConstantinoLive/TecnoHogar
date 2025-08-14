@@ -150,6 +150,24 @@ namespace WebForms
         protected global::System.Web.UI.WebControls.Label lblEmailMensaje;
 
         /// <summary>
+        /// Control lblComision.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblComision;
+
+        /// <summary>
+        /// Control txbComision.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbComision;
+
+        /// <summary>
         /// Control lblFechaAlta.
         /// </summary>
         /// <remarks>

@@ -132,6 +132,14 @@
 Buscar facturas
 					</asp:LinkButton>
 				</li>
+								<li>
+					<div class="icon-wrapper">
+						<img src="/Icon/Comision.png">
+					</div>
+					<asp:LinkButton ID="lnkComision" CssClass="btnMenu" OnClick="lnkComision_Click" runat="server">
+Comisión
+					</asp:LinkButton>
+				</li>
 			</ul>
 		</div>
 		<div class="container">

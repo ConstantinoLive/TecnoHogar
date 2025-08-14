@@ -72,6 +72,7 @@ runat="server" OnClick="btnimg_Click"/>
 						<asp:BoundField DataField="Apellido" HeaderText="Apellido" HeaderStyle-CssClass="py-3" />
 						<asp:BoundField DataField="Email" HeaderText="Email" HeaderStyle-CssClass="py-3" />
 						<asp:BoundField DataField="FechaAlta" HeaderText="Fecha Alta" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" HeaderStyle-CssClass="py-3" />
+						<asp:BoundField DataField="PorcentajeComision" HeaderText="Comisón" DataFormatString="{0:0.00}%" HeaderStyle-CssClass="py-3" />
 						<asp:TemplateField HeaderText="Rol" HeaderStyle-CssClass="py-3">
 							<ItemTemplate>
 								<span class='badge <%# Eval("Admin") != null && (bool)Eval("Admin") ? "bg-danger" : "bg-success" %> rounded-pill '>

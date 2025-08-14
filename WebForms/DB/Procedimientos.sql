@@ -358,6 +358,7 @@ END
 
 /*USUARIOS*/
 go
+/*
 create or alter procedure SP_AgregarUsuario
 @NombreUsuario varchar(100),
 @Nombre varchar(100),
@@ -389,6 +390,58 @@ update Usuario set NombreUsuario = @NombreUsuario, Nombre = @Nombre, Apellido = 
 end
 
 go
+*/
+-- ============================================
+-- SP para Ingresar Usuario (con Comisiones)
+-- ============================================
+
+ALTER PROCEDURE SP_AgregarUsuario
+    @NombreUsuario VARCHAR(100),
+    @Nombre VARCHAR(100),
+    @Apellido VARCHAR(100),
+    @Email VARCHAR(150),
+    @Contraseña VARCHAR(50),
+    @FechaAlta DATE,
+    @Activo BIT = 1,
+    @Admin BIT,
+    @PorcentajeComision DECIMAL(5,2) -- Nuevo parámetro
+AS
+BEGIN
+    INSERT INTO Usuario
+        (NombreUsuario, Nombre, Apellido, Email, Contrasena, FechaAlta, Admin, Activo, PorcentajeComision)
+    VALUES
+        (@NombreUsuario, @Nombre, @Apellido, @Email, @Contraseña, @FechaAlta, @Admin, @Activo, @PorcentajeComision);
+END
+GO
+
+-- ============================================
+-- SP para Modificar Usuario (con Comisiones)
+-- ============================================
+ALTER PROCEDURE SP_ModificarUsuario
+    @IdUsuario INT,
+    @NombreUsuario VARCHAR(100),
+    @Nombre VARCHAR(100),
+    @Apellido VARCHAR(100),
+    @Email VARCHAR(150),
+    @Contraseña VARCHAR(200),
+    @FechaAlta DATE,
+    @Admin BIT,
+    @PorcentajeComision DECIMAL(5,2) -- Nuevo parámetro
+AS
+BEGIN
+    UPDATE Usuario
+    SET
+        NombreUsuario = @NombreUsuario,
+        Nombre = @Nombre,
+        Apellido = @Apellido,
+        Email = @Email,
+        Contrasena = @Contraseña,
+        FechaAlta = @FechaAlta,
+        Admin = @Admin,
+        PorcentajeComision = @PorcentajeComision
+    WHERE IdUsuario = @IdUsuario;
+END
+GO
 
 create or alter procedure SP_EliminarUsuario
 @IdUsuario int

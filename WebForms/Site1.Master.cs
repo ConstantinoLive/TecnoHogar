@@ -21,6 +21,7 @@ namespace WebForms
             }
 
             Usuario usuario = (Usuario)Session["Usuario"];
+           
 
             if (usuario == null)
             {

@@ -139,3 +139,19 @@ CREATE TABLE VentaDetalle (
     FOREIGN KEY (IdVenta) REFERENCES Ventas(IdVenta),
     FOREIGN KEY (IdProducto) REFERENCES Productos(IdProducto)
 );
+--Se implementa comisión de ventas
+
+ALTER TABLE Usuario
+ADD PorcentajeComision DECIMAL(5,2) DEFAULT 0 NOT NULL;
+
+
+CREATE TABLE Comisiones (
+    IdComision INT PRIMARY KEY IDENTITY(1,1),
+    IdVenta INT NOT NULL,
+    IdUsuario INT NOT NULL,
+    PorcentajeAplicado DECIMAL(5,2) NOT NULL,
+    MontoComision DECIMAL(18,2) NOT NULL,
+    Fecha DATETIME NOT NULL DEFAULT GETDATE(),
+    FOREIGN KEY (IdVenta) REFERENCES Ventas(IdVenta),
+    FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
+);

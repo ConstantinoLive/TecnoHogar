@@ -178,5 +178,10 @@ namespace WebForms
             //MostrarModalCambioPass = false;
             Response.Redirect("AltaVenta.aspx", false);
         }
+
+        protected void lnkComision_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Comisiones.aspx", false);
+        }
     }
 }

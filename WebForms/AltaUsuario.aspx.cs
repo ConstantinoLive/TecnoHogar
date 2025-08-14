@@ -12,7 +12,7 @@ namespace WebForms
 {
     public partial class AltaVendedor : System.Web.UI.Page
     {
-        private WebControl[] Controles = new WebControl[6]; 
+        private WebControl[] Controles = new WebControl[7]; 
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +25,7 @@ namespace WebForms
                 Controles[3] = txtNombreUsuario;
                 Controles[4] = txtContrasena;
                 Controles[5] = ddlRol;
+                Controles[6] = txbComision;
 
                 if (!Seguridad.sesionActiva((Usuario)Session["Usuario"]))
                 {
@@ -60,7 +61,7 @@ namespace WebForms
                         txtContrasena.Text = usuario.Contrasena;
                         txtFechaAlta.Text = usuario.FechaAlta.ToString("yyyy-MM-dd");
                         ddlRol.SelectedValue = usuario.Admin.ToString();
-
+                        txbComision.Text = (usuario.PorcentajeComision/100).ToString("P");
 
                     }
                     else
@@ -99,6 +100,7 @@ namespace WebForms
                 nuevo.Contrasena = txtContrasena.Text;
                 nuevo.FechaAlta = DateTime.Parse(txtFechaAlta.Text);
                 nuevo.Admin = Convert.ToBoolean(ddlRol.SelectedValue);
+                nuevo.PorcentajeComision = decimal.Parse(txbComision.Text);
 
                 if (Request.QueryString["Id"] != null)
                 {
@@ -156,16 +158,9 @@ namespace WebForms
 
         protected void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            if (ValidacionCampo.ValidarCorreo(txtEmail.Text))
-            {
-                ValidacionCampo.ControlAceptar(btnAceptar, Controles);
-                lblEmailMensaje.Text = "";
-
-            }
-            else
-            {
-                lblEmailMensaje.Text = "Formato Invalido";
-            }
+           
+            ValidacionCampo.ControlAceptar(btnAceptar, Controles);
+               
 
         }
 
@@ -175,7 +170,14 @@ namespace WebForms
 
         }
 
-     
+       protected void txbComision_TextChanged(object sender, EventArgs e)
+        {
+            
+            ValidacionCampo.ControlAceptar(btnAceptar, Controles);
+            
+        }
+
+
 
         protected void ddlRol_SelectedIndexChanged(object sender, EventArgs e)
         {

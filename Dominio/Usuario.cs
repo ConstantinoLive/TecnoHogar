@@ -24,6 +24,7 @@ namespace Dominio
         public DateTime FechaAlta { get; set; }
         public bool Admin { get; set; } // Admin - Vendedor
         public bool Activo { get; set; }
+        public decimal PorcentajeComision { get; set; } 
         public TipoUsuario TipoUsuario { get; set; }
 
 

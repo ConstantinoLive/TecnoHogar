@@ -391,4 +391,79 @@ INSERT INTO VentaDetalle (IdVenta, IdProducto, Cantidad, PrecioUnit) VALUES
 (3, 15, 2, 240500.00); -- Redmi Note 12 (185000 + 30%)
 */
 
-select * from Usuario
+--Se implementa comisión de ventas
+/*
+ALTER TABLE Usuario
+ADD PorcentajeComision DECIMAL(5,2) DEFAULT 0 NOT NULL;
+*/
+/*
+CREATE TABLE Comisiones (
+    IdComision INT PRIMARY KEY IDENTITY(1,1),
+    IdVenta INT NOT NULL,
+    IdUsuario INT NOT NULL,
+    PorcentajeAplicado DECIMAL(5,2) NOT NULL,
+    MontoComision DECIMAL(18,2) NOT NULL,
+    Fecha DATETIME NOT NULL DEFAULT GETDATE(),
+    FOREIGN KEY (IdVenta) REFERENCES Ventas(IdVenta),
+    FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
+);
+*/
+/*
+INSERT into Comisiones (IdVenta,IdUsuario,PorcentajeAplicado,MontoComision,Fecha) VALUES 
+(1,1,5.00,13432.50,'2025-07-06'),
+(2,1,5.00,50327.50,'2025-07-06'),
+(3,2,10.00,129700.00,'2025-07-06')
+*/
+/*
+-- ============================================
+-- SP para Ingresar Usuario (con Comisiones)
+-- ============================================
+
+ALTER PROCEDURE SP_AgregarUsuario
+    @NombreUsuario VARCHAR(100),
+    @Nombre VARCHAR(100),
+    @Apellido VARCHAR(100),
+    @Email VARCHAR(150),
+    @Contraseña VARCHAR(50),
+    @FechaAlta DATE,
+    @Activo BIT = 1,
+    @Admin BIT,
+    @PorcentajeComision DECIMAL(5,2) -- Nuevo parámetro
+AS
+BEGIN
+    INSERT INTO Usuario
+        (NombreUsuario, Nombre, Apellido, Email, Contrasena, FechaAlta, Admin, Activo, PorcentajeComision)
+    VALUES
+        (@NombreUsuario, @Nombre, @Apellido, @Email, @Contraseña, @FechaAlta, @Admin, @Activo, @PorcentajeComision);
+END
+GO
+
+-- ============================================
+-- SP para Modificar Usuario (con Comisiones)
+-- ============================================
+ALTER PROCEDURE SP_ModificarUsuario
+    @IdUsuario INT,
+    @NombreUsuario VARCHAR(100),
+    @Nombre VARCHAR(100),
+    @Apellido VARCHAR(100),
+    @Email VARCHAR(150),
+    @Contraseña VARCHAR(200),
+    @FechaAlta DATE,
+    @Admin BIT,
+    @PorcentajeComision DECIMAL(5,2) -- Nuevo parámetro
+AS
+BEGIN
+    UPDATE Usuario
+    SET
+        NombreUsuario = @NombreUsuario,
+        Nombre = @Nombre,
+        Apellido = @Apellido,
+        Email = @Email,
+        Contrasena = @Contraseña,
+        FechaAlta = @FechaAlta,
+        Admin = @Admin,
+        PorcentajeComision = @PorcentajeComision
+    WHERE IdUsuario = @IdUsuario;
+END
+GO
+*/

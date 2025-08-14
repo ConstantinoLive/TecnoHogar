@@ -17,6 +17,7 @@ namespace WebForms
     public partial class Vendedores : System.Web.UI.Page
     {
         List<VentaDetalle> listaVentaDetalle = new List<VentaDetalle>();//
+       
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -675,6 +676,7 @@ namespace WebForms
                 // VINCULO USUARIO ACTIVO A LA VENTA ACTUAL
                 VentaActual.Usuario = (Usuario)Session["Usuario"];
                 VentaNegocio negocio = new VentaNegocio();
+                
 
                 // GUARDA LA COMPRA EN DB MEDIANTE TRANSACCION ACTUALIZANDO TABLAS Compras, CompraDetalle y Productos(actualizando stock)
                 negocio.GuardarVentaConSP(VentaActual);
@@ -713,6 +715,25 @@ namespace WebForms
                 // VACIAR Y REFRESCAR GRID:
                 ActualizarGridDetalle();
                 ActualizarTotal();
+
+               
+                //GUARDAR COMISIONES
+
+                ComisionesNegocio comNegocio = new ComisionesNegocio();
+
+                int idVenta = negocio.obtenerNumProxVenta()-1;
+                int idUsuario = ((Usuario)Session["Usuario"]).IdUsuario;
+                decimal porcentajeComision = VentaActual.Usuario.PorcentajeComision;
+
+                decimal totalVenta = 0;
+                if (VentaActual.Detalles != null)
+                    totalVenta = VentaActual.Detalles.Sum(d => d.Subtotal);
+
+                decimal montoComision = totalVenta * (porcentajeComision / 100m);
+
+                DateTime fechaVenta = DateTime.Now;
+
+                comNegocio.Comisionar(idVenta, idUsuario, porcentajeComision, montoComision, fechaVenta);
 
             }
             catch (Exception ex)

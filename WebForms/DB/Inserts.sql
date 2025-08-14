@@ -283,4 +283,9 @@ INSERT INTO VentaDetalle (IdVenta, IdProducto, Cantidad, PrecioUnit) VALUES
 (3, 9, 1, 816000.00), -- ROG Ally Z1 Extreme (680000 + 20%)
 (3, 4, 2, 240500.00); -- Redmi Note 12 (185000 + 30%)
 
+GO
 
+INSERT into Comisiones (IdVenta,IdUsuario,PorcentajeAplicado,MontoComision,Fecha) VALUES 
+(1,1,5.00,13432.50,'2025-07-06'),
+(2,1,5.00,50327.50,'2025-07-06'),
+(3,2,10.00,129700.00,'2025-07-06')
